@@ -1,0 +1,37 @@
+﻿@model List<CuoiKy.Models.NhanVien>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Nhân Viên</h2>
+<p>
+    @using (Html.BeginForm("Index", "NhanVien"))
+    {
+        @Html.Label("Tìm Kiếm Nhân Viên: ")
+        @Html.TextBox("Search")
+        <input type="submit" value="Enter" />
+    }
+</p>
+<input type="button" value="Thêm Nhân Viên" onclick="location.href='@Url.Action("addnv", "NhanVien")'"/>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Mã Nhân Viên</th>
+            <th>Tên Nhân Viên</th>
+            <th>Chức Năng</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.Id</td>
+                <td>@Html.ActionLink(customer.HotenNV, "detailsnv", "NhanVien", new { id = customer.Id }, null)</td>
+                <td>
+                    @Html.ActionLink("Sửa", "edit", "NhanVien", new { id = customer.Id }, null) -
+                    @Html.ActionLink("Xóa", "deletenv", "NhanVien", new { id = customer.Id }, null)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,42 @@
+﻿@model List<CuoiKy.Models.Phong>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/css/Phongthue.css" rel="stylesheet" />
+<body>
+    <h1>Danh Sách Phòng</h1>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Mã Phòng</th>
+                <th>Loại Phòng</th>
+                <th>Ảnh</th>
+                <th>Giá Phòng</th>
+                <th>Tình Trạng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+                <tr>
+                    <td style="font-size:20px;">@customer.Id</td>
+                    <td style="font-size:20px;width:275px;">@customer.Loaiphong</td>
+                    <td style="width:400px;"><img style="width:400px;height:210px;" src="@customer.ImageP" /></td>
+                    <td style="font-size:20px;">@customer.Giaphong</td>
+                    <td>
+                        @if (customer.Tinhtrang == "Có khách")
+                        {
+                            <p style="color:red;font-size:20px;">@customer.Tinhtrang</p>
+                        }
+                        @if (customer.Tinhtrang == "Trống")
+                        {
+                            <p style="font-size:20px;">@customer.Tinhtrang</p>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+

@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body style="width:100%">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Trang Chủ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Khách Hàng", "Index", "KhachHang")</li>
+                        <li>@Html.ActionLink("Phòng", "Index", "Phong")</li>
+                        <li>@Html.ActionLink("Dịch Vụ", "Index", "DichVu")</li>
+                        <li>@Html.ActionLink("Thuê Phòng", "Index", "PhongThue")</li>
+                        <li>@Html.ActionLink("Thuê Dịch Vụ", "Index", "ThueDV")</li>
+                    </ul>
+                }
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @Html.Partial("_Notifications")
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script>
+
+        let __protocol = document.location.protocol;
+        let __baseUrl = __protocol + '//livechat.fpt.ai/v35/src';
+
+        let prefixNameLiveChat = 'Gà Ngon';
+        let objPreDefineLiveChat = {
+            appCode: '17414651bf288cb7e0f12c1946d7473f',
+            themes: '',
+            appName: prefixNameLiveChat ? prefixNameLiveChat : 'Live support',
+            thumb: '',
+            icon_bot: ''
+        },
+            appCodeHash = window.location.hash.substr(1);
+        if (appCodeHash.length == 32) {
+            objPreDefineLiveChat.appCode = appCodeHash;
+        }
+
+        let fpt_ai_livechat_script = document.createElement('script');
+        fpt_ai_livechat_script.id = 'fpt_ai_livechat_script';
+        fpt_ai_livechat_script.src = __baseUrl + '/static/fptai-livechat.js';
+        document.body.appendChild(fpt_ai_livechat_script);
+
+        let fpt_ai_livechat_stylesheet = document.createElement('link');
+        fpt_ai_livechat_stylesheet.id = 'fpt_ai_livechat_script';
+        fpt_ai_livechat_stylesheet.rel = 'stylesheet';
+        fpt_ai_livechat_stylesheet.href = __baseUrl + '/static/fptai-livechat.css';
+        document.body.appendChild(fpt_ai_livechat_stylesheet);
+
+        fpt_ai_livechat_script.onload = function () {
+            fpt_ai_render_chatbox(objPreDefineLiveChat, __baseUrl, 'livechat.fpt.ai:443');
+        }
+    </script>
+
+</body>
+</html>

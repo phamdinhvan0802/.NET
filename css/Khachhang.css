@@ -1,0 +1,24 @@
+﻿body {
+    background-color: #F8EFFF;
+}
+h1 {
+    font-weight: bold;
+    position: relative;
+    left: 42%;
+    width: 500px;
+}
+
+.table {
+    position: relative;
+    top: 15px;
+}
+
+.btnthem {
+    background-color: #AFEEEE;
+    border-color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.btnthem:hover{
+    background-color: #7FFFD4;
+}

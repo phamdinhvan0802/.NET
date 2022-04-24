@@ -1,0 +1,36 @@
+﻿@model List<CuoiKy.Models.PhongThue>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/css/Phongthue.css" rel="stylesheet" />
+<h1>Thuê Phòng</h1>
+<input class="conmem" type="button" value="Thêm Khách Hàng Vào Phòng" onclick="location.href='@Url.Action("addPhong", "PhongThue")'" />
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Mã Phòng Thuê</th>
+            <th>Mã Khách Hàng</th>
+            <th>Mã Phòng</th>
+            <th>Ngày Đến</th>
+            <th>Ngày Đi</th>
+            <th>Chức Năng</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.Id</td>
+                <td>@customer.KhachHangId</td>
+                <td>@customer.PhongId</td>
+                <td>@customer.NgayDen.Value.ToString("dd/MM/yyyy")</td>
+                <td>@customer.NgayDi.Value.ToString("dd/MM/yyyy")</td>
+                <td>
+                    @Html.ActionLink("Xóa khách hàng khỏi phòng", "deletePhong", "PhongThue",
+                new { id = customer.Id, Phongthue = customer.PhongId }, null)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

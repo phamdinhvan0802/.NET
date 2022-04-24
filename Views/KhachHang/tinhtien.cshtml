@@ -1,0 +1,31 @@
+﻿@model CuoiKy.Models.TinhTien
+@using Newtonsoft.Json;
+@using System.Globalization;
+@{
+    ViewBag.Title = "tinhtien";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<body style="background-color: #F8EFFF;">
+    <h1 style="font-weight:bold">Thành Tiền</h1>
+    <h3 style="font-weight:bold">Tên khách hàng:</h3>
+    <h4>@Model.KhachHang.Hoten</h4>
+    @if (Model.Phong != null)
+     { 
+        <h3 style="font-weight:bold">Phòng:</h3>
+        <h4>@Model.Phong.PhongId</h4>
+        <h3 style="font-weight:bold">Ngày đến:</h3>
+        <h4>@Model.Phong.NgayDen.Value.ToString("dd/MM/yyyy")</h4>
+        <h3 style="font-weight:bold">Ngày đi:</h3>
+        <h4>@Model.Phong.NgayDi.Value.ToString("dd/MM/yyyy")</h4>
+     }
+    @if (Model.DichVu != null)
+     {
+        <h3 style="font-weight:bold">Dịch vụ sử dụng:</h3>
+        foreach (var DV in Model.DichVu)
+        {
+            <h4>- @DV.DichVu.TenDV Giá: @DV.DichVu.GiaDV (@DV.NgaySD.ToString("dd/MM/yyyy"))</h4>
+        }
+     }
+    <h3 style="font-weight:bold">Tổng tiền:</h3>
+    <h4>@Model.ThanhTien</h4>
+</body>

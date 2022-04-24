@@ -1,0 +1,30 @@
+﻿@model List<CuoiKy.Models.DichVu>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/css/homedv.css" rel="stylesheet" />
+<body>
+    <h1>Danh Sách Dịch Vụ</h1>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Mã Dịch Vụ</th>
+                <th>Tên Dịch Vụ</th>
+                <th>Ảnh</th>
+                <th>Giá Dịch Vụ</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+                <tr>
+                    <td style="font-size:20px;">@customer.Id</td>
+                    <td style="font-size:20px;">@customer.TenDV</td>
+                    <td style="width:400px;"><img style="width:400px;height:210px;" src="@customer.ImageDV" /></td>
+                    <td style="font-size:20px;">@customer.GiaDV</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>

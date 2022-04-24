@@ -1,0 +1,18 @@
+﻿@model CuoiKy.Models.KhachHang
+@{
+    ViewBag.Title = "details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<body>
+    <h1 style="font-weight:bold">Chi Tiết Khách Hàng</h1>
+    <h3 style="font-weight:bold">Họ tên khách hàng:</h3>
+    <h4>@Model.Hoten</h4>
+    <h3 style="font-weight:bold">Ngày sinh:</h3>
+    <h4>@Model.NgaySinh.ToString("dd/MM/yyyy")</h4>
+    <h3 style="font-weight:bold">Giới tính:</h3>
+    <h4>@Model.Gioitinh</h4>
+    <h3 style="font-weight:bold">Số chứng minh:</h3>
+    <h4>@Model.CMND</h4>
+    <h3 style="font-weight:bold">Số điện thoại:</h3>
+    <h4>@Model.SDT</h4>
+</body>

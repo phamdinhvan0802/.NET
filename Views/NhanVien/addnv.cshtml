@@ -1,0 +1,39 @@
+﻿@model CuoiKy.Models.NhanVien
+@{
+    ViewBag.Title = "addnv";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thêm Khách Hàng</h2>
+@using (Html.BeginForm("addnv", "NhanVien"))
+{
+    <div class="form-group">
+        @Html.LabelFor(a => a.HotenNV)
+        @Html.TextBoxFor(a => a.HotenNV, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.NgaySinh)
+        @Html.TextBoxFor(a => a.NgaySinh, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.Gioitinh)
+        @Html.TextBoxFor(a => a.Gioitinh, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.CMND)
+        @Html.TextBoxFor(a => a.CMND, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.SDT)
+        @Html.TextBoxFor(a => a.SDT, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.Matkhau)
+        @Html.TextBoxFor(a => a.Matkhau, new { @class = "form-control" })
+    </div>
+    <div>
+        @Html.HiddenFor(a => a.Id) <!-- lấy id ngầm -->
+        <button type="submit">Gửi</button>
+    </div>
+}
+

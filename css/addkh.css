@@ -1,0 +1,23 @@
+﻿h1 {
+    font-weight: bold;
+    width: 500px;
+}
+
+.table {
+    position: relative;
+    top: 15px;
+}
+
+input {
+    background-color: black;
+    border-color: white;
+    font-weight: bold;
+    color: white;
+}
+
+.timkiemnv {
+    background-color: black;
+}
+body {
+    background-color: #F8EFFF;
+}

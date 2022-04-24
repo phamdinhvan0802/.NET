@@ -1,0 +1,43 @@
+﻿@model CuoiKy.Models.KhachHang
+@{
+    ViewBag.Title = "addkh";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/css/addkh.css" rel="stylesheet" />
+<body>
+    <h1>Thêm Khách Hàng</h1>
+    @using (Html.BeginForm("addkh", "KhachHang"))
+    {
+        <div class="form-group">
+            @Html.LabelFor(a => a.Hoten)
+            @Html.TextBoxFor(a => a.Hoten, new { @class = "form-control", Name = "hoten" })
+            @Html.ValidationMessageFor(a => a.Hoten, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(a => a.NgaySinh)
+            @Html.TextBoxFor(a => a.NgaySinh, new { @class = "form-control" })
+            @Html.ValidationMessageFor(a => a.NgaySinh, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(a => a.Gioitinh)
+            @Html.TextBoxFor(a => a.Gioitinh, new { @class = "form-control" })
+            @Html.ValidationMessageFor(a => a.Gioitinh, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(a => a.CMND)
+            @Html.TextBoxFor(a => a.CMND, new { @class = "form-control" })
+            @Html.ValidationMessageFor(a => a.CMND, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(a => a.SDT)
+            @Html.TextBoxFor(a => a.SDT, new { @class = "form-control" })
+            @Html.ValidationMessageFor(a => a.SDT, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(a => a.Id) <!-- lấy id ngầm -->
+            <button type="submit">Gửi</button>
+        </div>
+    }
+</body>
+

@@ -1,0 +1,41 @@
+﻿@model List<CuoiKy.Models.KhachHang>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/css/Khachhang.css" rel="stylesheet" />
+<body>
+    <h1>Khách Hàng</h1>
+    <p>
+        @using (Html.BeginForm("Index", "KhachHang"))
+        {
+            @Html.Label("Tìm Kiếm Khách Hàng: ")
+            @Html.TextBox("Search")
+            <input type="submit" value="Tìm Kiếm" />
+        }
+    </p>
+    <input class="btnthem" type="button" value="Thêm Khách Hàng" onclick="location.href='@Url.Action("addkh", "KhachHang")'" />
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Mã Khách Hàng</th>
+                <th>Tên Khách Hàng</th>
+                <th>Chức Năng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+                <tr>
+                    <td>@customer.Id</td>
+                    <td>@Html.ActionLink(customer.Hoten, "details", "KhachHang", new { id = customer.Id }, null)</td>
+                    <td>
+                        @Html.ActionLink("Sửa", "edit", "KhachHang", new { id = customer.Id }, null) -
+                        @Html.ActionLink("Xóa", "delete", "KhachHang", new { id = customer.Id }, null) -
+                        @Html.ActionLink("Thanh Toán", "tinhtien", "KhachHang", new { id = customer.Id, }, null)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>

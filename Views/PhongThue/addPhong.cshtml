@@ -1,0 +1,38 @@
+﻿@model CuoiKy.Models.KhachHangPhong
+@{
+    ViewBag.Title = "addPhong";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/css/edit.css" rel="stylesheet" />
+<body>
+        <h1>Thuê Phòng</h1>
+        @using (Html.BeginForm("addPhong", "PhongThue"))
+        {
+            <div class="form-group">
+                @Html.LabelFor(a => a.Phongthue.KhachHangId)
+                @Html.DropDownListFor(a => a.Phongthue.KhachHangId, new SelectList(Model.KhachHang, "Id", "Hoten"), "Chọn Khách Hàng", new { @class = "form-control" })
+                @Html.ValidationMessageFor(a => a.Phongthue.KhachHangId, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(a => a.Phongthue.PhongId)
+                @Html.DropDownListFor(a => a.Phongthue.PhongId, new SelectList(Model.Phong, "Id", "Id"), "Chọn Phòng", new { @class = "form-control" })
+                @Html.ValidationMessageFor(a => a.Phongthue.PhongId, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(a => a.Phongthue.NgayDen)
+                @Html.TextBoxFor(a => a.Phongthue.NgayDen, new { @class = "form-control" })
+                @Html.ValidationMessageFor(a => a.Phongthue.NgayDen, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(a => a.Phongthue.NgayDi)
+                @Html.TextBoxFor(a => a.Phongthue.NgayDi, new { @class = "form-control" })
+                @Html.ValidationMessageFor(a => a.Phongthue.NgayDi, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(a => a.Phongthue.Id) <!-- lấy id ngầm -->
+                <button type="submit">Gửi</button>
+            </div>
+        }
+</body>

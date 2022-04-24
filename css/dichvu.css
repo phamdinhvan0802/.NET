@@ -1,0 +1,22 @@
+﻿h1{
+    font-weight:bold;
+    position:relative;
+    left:37%;
+    width:500px;
+}
+.table{
+    position:relative;
+    top:15px;
+}
+input {
+    background-color: #AFEEEE;
+    border-color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}
+input:hover {
+    background-color: #7FFFD4;
+}
+body {
+    background-color: #F8EFFF;
+}

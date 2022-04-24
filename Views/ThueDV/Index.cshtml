@@ -1,0 +1,31 @@
+﻿@model List<CuoiKy.Models.DungDV>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/css/dichvu.css" rel="stylesheet" />
+<body>
+    <h1>Thuê Dịch Vụ</h1>
+    <input type="button" value="Thuê Dịch Vụ" onclick="location.href='@Url.Action("addDV","ThueDV")'" />
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Mã Dịch Vụ</th>
+                <th>Mã Khách Hàng</th>
+                <th>Ngày Sử Dụng</th>
+                <th>Chức Năng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+                <tr>
+                    <td>@customer.DichVuId</td>
+                    <td>@customer.KhachHangId</td>
+                    <td>@customer.NgaySD.ToString("dd/MM/yyyy")</td>
+                    <td>@Html.ActionLink("Xóa dịch vụ thuê", "deleteDV", "ThueDV", new { id = customer.Id }, null)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
