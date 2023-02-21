@@ -20,6 +20,7 @@ namespace CuoiKy.Controllers
             _context.Dispose();
         }
         // GET: DichVu
+        // update git
         public ActionResult Index()
         {
             var DV = _context.DichVu.ToList();
