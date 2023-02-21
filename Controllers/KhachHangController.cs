@@ -57,6 +57,7 @@ namespace CuoiKy.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+        // edit kh
         public ActionResult delete(int id)
         {
             var deleteKH = _context.KhachHang.SingleOrDefault(c => c.Id == id);
