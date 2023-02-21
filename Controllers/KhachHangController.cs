@@ -45,6 +45,7 @@ namespace CuoiKy.Controllers
             var editKHv = _context.KhachHang.SingleOrDefault(c => c.Id == id); // hiện trang edit theo id kh
             return View(editKHv);
         }
+        # edit KH
         public ActionResult editkh(KhachHang kh)
         {
             var editKH = _context.KhachHang.SingleOrDefault(c => c.Id == kh.Id);
